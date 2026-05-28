@@ -1,0 +1,18 @@
+models:
+  - name: stg_Jaffle_shop__customers
+    description: customer dim data
+    columns:
+      - name: cumtomer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_Jaffle_shop__orders
+    description: orders data with qty
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+          
+          
