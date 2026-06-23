@@ -6,6 +6,17 @@ sources:
     tables:
       - name: customer_web_activity
       - name: customers
+        columns:
+          - name: id
+            data_type: number
+            data_tests:
+              - not_null      
+              - unique              
+          - name: first_name
+            data_type: varchar
+          - name: last_name
+            data_type: varchar
+
       - name: items
       - name: locations
       - name: order_items
@@ -19,6 +30,58 @@ sources:
               count: 2
               period: day
           loaded_at_field: _etl_loaded_at
+        columns:
+          - name: id
+            data_tests:
+              - not_null            
+            data_type: number
+          - name: user_id
+            data_type: number
+          - name: order_date
+            data_type: date
+          - name: status
+            data_type: varchar
+          - name: _etl_loaded_at
+            data_type: timestamp_ntz
+        
       - name: products
+        columns:
+          - name: sku
+            data_type: varchar
+          - name: name
+            data_type: varchar
+          - name: type
+            data_type: varchar
+          - name: price
+            data_type: number
+          - name: description
+            data_type: varchar
+
       - name: stores
+        columns:
+          - name: id
+            data_tests:
+              - not_null            
+            data_type: varchar
+          - name: name
+            data_type: varchar
+          - name: opened_at
+            data_type: timestamp_ntz
+          - name: tax_rate
+            data_type: number
+
       - name: supplies
+        columns:
+          - name: id
+            data_type: varchar
+            data_tests:
+              - not_null              
+          - name: name
+            data_type: varchar
+          - name: cost
+            data_type: number
+          - name: perishable
+            data_type: boolean
+          - name: sku
+            data_type: varchar
+

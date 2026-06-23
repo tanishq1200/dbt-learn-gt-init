@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: Staged customer records from the Jaffle Shop source.
+    columns:
+      - name: customer_id
+        description: Primary key for each customer.
+      - name: first_name
+        description: Customer first name.
+      - name: last_name
+        description: Customer last name.
+
+  - name: stg_jaffle_shop__orders
+    description: Staged order records from the Jaffle Shop source.
+    columns:
+      - name: order_id
+        description: Primary key for each order.
+      - name: customer_id
+        description: Foreign key to the customer who placed the order.
+      - name: order_date
+        description: Date the order was placed.
+      - name: status
+        description: Current status of the order.
+
+  - name: stg_jaffle_shop__products
+    description: Staged product records from the Jaffle Shop source.
+    columns:
+      - name: sku
+        description: Stock keeping unit for the product.
+      - name: name
+        description: Product name.
+      - name: type
+        description: Product category or type.
+      - name: price
+        description: Product price.
+      - name: description
+        description: Product description.
+
+  - name: stg_jaffle_shop__order_items
+    description: Staged order item records from the Jaffle Shop source.
+    columns:
+      - name: order_item_id
+        description: Primary key for each order item.
+      - name: order_id
+        description: Foreign key to the related order.
+      - name: product_id
+        description: Foreign key to the related product.
+      - name: ordered_at
+        description: Timestamp when the item was ordered.
+      - name: product_name
+        description: Name of the product at order time.
+      - name: product_price
+        description: Price of the product at order time.
+      - name: is_food_item
+        description: Flag indicating whether the item is a food product.
+      - name: is_drink_item
+        description: Flag indicating whether the item is a drink product.
+      - name: supply_cost
+        description: Cost to supply the ordered item.

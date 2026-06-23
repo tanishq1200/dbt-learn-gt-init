@@ -6,4 +6,4 @@ with
     )
 
 select *
-from customers 
+from customers
