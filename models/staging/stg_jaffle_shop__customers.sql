@@ -5,7 +5,7 @@ with customers as (
         first_name,
         last_name
 
-    from raw.jaffle_shop.customers
+    {{ source('jaffle_shop', 'orders') }}
 
 )
 
